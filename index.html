@@ -87,7 +87,7 @@ function loadFile(){
     fileData.open("get", filePath, false);
     fileData.send(null);
 
-    var lines = data.responseText.split("\n");
+    var lines = fileData.responseText.split("\n");
     var resultArray = new Array();
 
     for(var i=0; i<lines.length; i++){

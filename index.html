@@ -82,10 +82,10 @@ if(urlParam) {
 function loadFile(){
     var syuenFile = document.getElementById("syuenCsv");
     var fileData = new XMLHttpRequest();
-    var filePath = "/syuenUta.csv";
+    var filePath = "./syuenUta.csv";
 
     fileData.open("get", filePath, false);
-    fileData.send();
+    fileData.send(null);
 
     var lines = data.responseText.split("\n");
     var resultArray = new Array();

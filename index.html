@@ -90,7 +90,7 @@ function loadFile(){
     fileData.open("get", filePath, false);
     fileData.send(null);
 
-    var lines = fileData.responseText.split("\n");
+    var lines = fileData.responseText.replace("\"","").split("\n");
     var resultArray = new Array();
 
     for(var i=0; i<lines.length; i++){

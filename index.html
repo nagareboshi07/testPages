@@ -17,7 +17,7 @@ var urlParam = location.search.substring(1);
 ここの配列を追加していく*/
 //var array = [["im8799573", "テストタイトル", "ともがらが　居れど流るる　我が涙", "飽くことの無い　思い出の旅", "黒金目鯛"],
 //["イラストのID", "イラストのタイトル(いらないかも)", "歌1行目", "歌2行目", "詠み人"]];
-
+var utaCount = 0;
 var array = loadFile();
 
 document.write(array[0]);
@@ -70,7 +70,7 @@ if(urlParam) {
 }else{
 
 
-    for(i=0; i<2; i++){
+    for(i=0; i<utaCount; i++){
         document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");
         imgiframe = "<iframe width=\"312\" height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
         document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td></tr>");
@@ -97,6 +97,7 @@ function loadFile(){
         var tmp = lines[i].split(",");
         if(tmp.length != 1){
             resultArray.push(tmp);
+            utaCount = utaCount + 1;
         }
     }
     document.write(resultArray);

@@ -52,7 +52,7 @@ if(urlParam) {
 
     for(i=0; i<utaCount; i++){
 
-        document.write(array[i][4]);
+        document.write(userName==array[i][4]);
 
         if((userFlg == 0 || array[i][4] == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
             document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");

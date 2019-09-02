@@ -51,10 +51,10 @@ if(urlParam) {
       }
 
     for(i=0; i<utaCount; i++){
+
+        document.write(array[i][4]);
+
         if((userFlg == 0 || array[i][4] == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
-
-            document.write(array[i][4]);
-
             document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");
             imgiframe = "<iframe width=\"312\" height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
             document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td>");

@@ -53,7 +53,7 @@ if(urlParam) {
     for(i=0; i<10; i++){
         if((userFlg == 0 || array[i][4] == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
             document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");
-            imgiframe = "<iframe width=\"312\" height=\"176\" src=\"http://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"http://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
+            imgiframe = "<iframe width=\"312\" height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
             document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td>");
 
             document.write("<td align=left>" + array[i][2] + "</td></tr>");
@@ -72,11 +72,12 @@ if(urlParam) {
     for(i=0; i<utaCount; i++){
         document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");
         imgiframe = "<iframe width=\"312\" height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
-        document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td></tr>");
+        document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td>");
 
-        document.write("<tr><td align=left>" + array[i][2] + "</td></tr>");
+        document.write("<td align=left>" + array[i][2] + "</td></tr>");
         document.write("<tr><td align=center>" + array[i][3] + "</td></tr>");
         document.write("<tr><td align=right>" + array[i][4] + "</td></tr>");
+        document.write("<tr><td><a href=\"/index.html?user=" + array[i][4] + "\">この詠み手の歌をもっと見る</a>　　<a href=\"/index.html?illust=" + array[i][0] + "\">このイラストの歌をもっと見る</a></tr></td>");
         document.write("</table>");
     }
 }

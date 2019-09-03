@@ -84,14 +84,14 @@ if(urlParam) {
 }
 
 function loadFile(){
-    var syuenFile = document.getElementById("syuenCsv");
+//    var syuenFile = document.getElementById("syuenCsv");
     var fileData = new XMLHttpRequest();
     var filePath = "./syuenUta.csv";
 
     fileData.open("get", filePath, false);
     fileData.send(null);
 
-    var lines = fileData.responseText.replace(/"/g,"").split("\n");
+    var lines = fileData.responseText.replace(/""/g,"【ダブルクォート2個】").replace(/"/g,"").replace(/【ダブルクォート2個】/g,'"').split("\n");
     var resultArray = new Array();
 
     for(var i=0; i<lines.length; i++){

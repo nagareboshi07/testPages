@@ -15,7 +15,18 @@
 var urlParam = location.search.substring(1);
  
 var utaCount = 0;
-var array = loadFile();
+
+//読み込むcsvリスト
+var festname=["1st","2nd","4th","5th","6th","7th","8th","9th"];
+var csvpath = [];
+csvpath["1st"] = "tsukimi.csv";
+csvpath["2nd"] = "hanami.csv";
+csvpath["4th"] = "syuen.csv";
+csvpath["5th"] = "";    //ここに歌のcsvのファイル名を入力していく。
+csvpath["6th"] = "";
+csvpath["7th"] = "";
+csvpath["8th"] = "";
+csvpath["9th"] = "";
 
 // URLにパラメータが存在する場合
 if(urlParam) {
@@ -23,6 +34,7 @@ if(urlParam) {
     var param = urlParam.split('&');
     var userFlg = 0;    //ユーザ指定のときは1にする
     var illustFlg = 0;  //イラスト指定(im番号)のときは1にする
+    var festFlg = 0;
 
     var printedIllust = "im"; //前回表示したイラストのim番号
 
@@ -36,7 +48,14 @@ if(urlParam) {
             userFlg = 1;
         }else if(paramItem[0]=="illust"){
             illustFlg = 1;
+        }else if(paramItem[0] == "fest"){
+            festFlg = 1;
         }
+    }
+    var fest = "all";
+    if(festFlg==1){
+        fest = paramArray.fest;
+        document.write("<p>お祭り指定：" + fest +"</p>");      
     }
 
     if(userFlg==1){
@@ -47,6 +66,13 @@ if(urlParam) {
 
     if(illustFlg==1){
         document.write("<p>静画ID指定：" + paramArray.illust +"</p>");
+    }
+    if(fest="all"){
+        for(i=0;i<festname.length;i++){
+            var array = loadFile(csvpath[festname[i]]);
+        }
+    }else{
+        var array = loadFile(csvpath[fest]);
     }
 
     for(i=0; i<utaCount; i++){
@@ -67,21 +93,24 @@ if(urlParam) {
     }
 }
 
-function loadFile(){
+function loadFile(filename){
     var fileData = new XMLHttpRequest();
-    var filePath = "./syuenUta.csv";
-
-    fileData.open("get", filePath, false);
-    fileData.send(null);
-
-    var lines = fileData.responseText.replace(/""/g,"【ダブルクォート2個】").replace(/"/g,"").replace(/【ダブルクォート2個】/g,'"').split("\n");
     var resultArray = new Array();
 
-    for(var i=0; i<lines.length; i++){
-        var tmp = lines[i].split(",");
-        if(tmp.length != 1){
-            resultArray.push(tmp);
-            utaCount = utaCount + 1;
+    if(filename.length!=0){
+        var filePath = "uta/" + filename;
+
+        fileData.open("get", filePath, false);
+        fileData.send(null);
+
+        var lines = fileData.responseText.replace(/""/g,"【ダブルクォート2個】").replace(/"/g,"").replace(/【ダブルクォート2個】/g,'"').split("\n");
+
+        for(var i=0; i<lines.length; i++){
+            var tmp = lines[i].split(",");
+            if(tmp.length != 1){
+                resultArray.push(tmp);
+                utaCount = utaCount + 1;
+            }
         }
     }
     return resultArray;

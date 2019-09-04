@@ -76,8 +76,7 @@ if(urlParam) {
     }
     for(j=0;j<fest.length;j++){
         utaCount = 0;
-        var array = loadFile(fest[j]);
-        document.write("<p>" + j + ":"+fest[j] + "</p>");
+        var array = loadFile(csvpath[fest[j]]);
         for(i=0; i<utaCount; i++){
             if((userFlg == 0 || array[i][4].trim() == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
                 if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。

@@ -76,7 +76,9 @@ if(urlParam) {
     fest[0] = "all";
     if(festFlg==1){
         fest[0] = paramArray.fest;
-        document.write("<p>お祭り指定：東方ニコ楽祭・" + festinfo[fest[0]][1] +"</p>");      
+        if(fest[0]!=all){
+            document.write("<p>お祭り指定：東方ニコ楽祭・" + festinfo[fest[0]][1] +"</p>");      
+        }
     }
 
     if(userFlg==1){

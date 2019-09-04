@@ -33,8 +33,8 @@ festinfo["9th"] = ["",""];
 //リンク集を表示する。
 document.write("<table border='1' rules='all'><tr>")
 for(i=0;i<festnames.length;i++){
-    if(festinfo[festnames[i][0]]!=""){
-        document.write("<td><a href='index.html?fest=" + festinfo[festnames][i][0] + "'>" + festinfo[festnames][i][1] + "</a></td>")
+    if(festinfo[festnames[i]][0]!=""){
+        document.write("<td><a href='index.html?fest=" + festinfo[festnames[i]][0] + "'>" + festinfo[festnames[i]][1] + "</a></td>")
         if(i%5==4){
             document.write("</tr><tr>");
         }

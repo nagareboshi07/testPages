@@ -15,6 +15,7 @@
 var urlParam = location.search.substring(1);
  
 var utaCount = 0;
+var allCount = 0;
 
 //読み込むcsvリスト
 var festnames=["1st","2nd","4th","5th","6th","7th","8th","9th"];
@@ -54,10 +55,10 @@ if(urlParam) {
         }
     }
     var fest = [];
-    fest[0]="all";
+    fest[0] = "all";
     if(festFlg==1){
         fest[0] = paramArray.fest;
-        document.write("<p>お祭り指定：" + fest +"</p>");      
+        document.write("<p>お祭り指定：" + fest[0] +"</p>");      
     }
 
     if(userFlg==1){
@@ -74,7 +75,9 @@ if(urlParam) {
         fest = festnames;
     }
     for(j=0;j<fest.length;j++){
+        utaCount = 0;
         var array = loadFile(fest[j]);
+        document.write("<p>" + j + ":"+fest[j] + "</p>");
         for(i=0; i<utaCount; i++){
             if((userFlg == 0 || array[i][4].trim() == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
                 if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
@@ -89,6 +92,7 @@ if(urlParam) {
                 document.write("<tr><td align=right>" + array[i][4] + "</td></tr></table>");
 
                 document.write("<p><font size='3'><a href='index.html?user=" + array[i][4] + "'>この詠み手の歌をもっと見る</a></font></p><br><br>");
+                allCount = allCount + 1;
             }
         }
     }

@@ -14,10 +14,6 @@
 
 var urlParam = location.search.substring(1);
  
-/*data
-ここの配列を追加していく*/
-//var array = [["im8799573", "テストタイトル", "ともがらが　居れど流るる　我が涙", "飽くことの無い　思い出の旅", "黒金目鯛"],
-//["イラストのID", "イラストのタイトル(いらないかも)", "歌1行目", "歌2行目", "詠み人"]];
 var utaCount = 0;
 var array = loadFile();
 
@@ -25,12 +21,15 @@ var array = loadFile();
 if(urlParam) {
     // 「&」が含まれている場合は「&」で分割
     var param = urlParam.split('&');
- 
-    // パラメータを格納する用の配列を用意
-    var paramArray = [];
-    userFlg = 0;
-    illustFlg = 0;
-    // 用意した配列にパラメータを格納
+    var userFlg = 0;    //ユーザ指定のときは1にする
+    var illustFlg = 0;  //イラスト指定(im番号)のときは1にする
+
+    var printedIllust = "im"; //前回表示したイラストのim番号
+
+    var paramArray = [];    //パラメータ格納用の配列
+
+    //配列にパラメータを格納
+
     for (i = 0; i < param.length; i++) {
         var paramItem = param[i].split('=');
         paramArray[paramItem[0]] = paramItem[1];
@@ -40,52 +39,34 @@ if(urlParam) {
             illustFlg = 1;
         }
     }
-    
-  if(userFlg==1 || illustFlg == 1){
-      if(userFlg==1){
-          var userName = paramArray.user;
-          userName = decodeURI(userName);
-          document.write("<p>詠み手指定：" + userName +"</p>");
-      }
-      if(illustFlg==1){
-        document.write("<p>静画ID指定：" + paramArray.illust +"</p>");
-      }
-
-    for(i=0; i<utaCount; i++){
-
-        if((userFlg == 0 || array[i][4].trim() == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
-            document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");
-            imgiframe = "<iframe width=\"312\" height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
-            document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td>");
-
-            document.write("<td align=left>" + array[i][2] + "</td></tr>");
-            document.write("<tr><td align=center>" + array[i][3] + "</td></tr>");
-            document.write("<tr><td align=right>" + array[i][4] + "</td></tr>");
-
-            document.write("<tr><td><a href=\"index.html?user=" + array[i][4] + "\">この詠み手の歌をもっと見る</a>　　<a href=\"index.html?illust=" + array[i][0] + "\">このイラストの歌をもっと見る</a></tr></td>");
-            document.write("</table>");
-        }
+    if(userFlg==1){
+        var userName = paramArray.user;
+        userName = decodeURI(userName);
+        document.write("<p>詠み手指定：" + userName +"</p>");
     }
 
-  }
-}else{
-
+    if(illustFlg==1){
+        document.write("<p>静画ID指定：" + paramArray.illust +"</p>");
+    }
 
     for(i=0; i<utaCount; i++){
-        document.write("<table width=\"800\"><body text=\"#000000\"><p align=\"center\">");
-        imgiframe = "<iframe width=\"312\" height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
-        document.write("<tr><td rowspan=\"4\" width=\"313\">" + imgiframe + "</td>");
+        if((userFlg == 0 || array[i][4].trim() == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
+            if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
+                imgiframe = "<iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
+                document.write(imgiframe);
+                document.write("<a href='index.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></tr></td>")
+            }
+            document.write("<table width='500'><body text='#000000'><p align='center'>");
+            document.write("<tr><td align=left>" + array[i][2] + "</td></tr>");
+            document.write("<tr><td align=center>" + array[i][3] + "</td></tr>");
+            document.write("<tr><td align=right>" + array[i][4] + "</td></tr></table>");
 
-        document.write("<td align=left>" + array[i][2] + "</td></tr>");
-        document.write("<tr><td align=center>" + array[i][3] + "</td></tr>");
-        document.write("<tr><td align=right>" + array[i][4] + "</td></tr>");
-        document.write("<tr><td><a href=\"index.html?user=" + array[i][4] + "\">この詠み手の歌をもっと見る</a>　　<a href=\"index.html?illust=" + array[i][0] + "\">このイラストの歌をもっと見る</a></tr></td>");
-        document.write("</table>");
+            document.write("<a href='index.html?user=" + array[i][4] + "'>この詠み手の歌をもっと見る</a>");
+        }
     }
 }
 
 function loadFile(){
-//    var syuenFile = document.getElementById("syuenCsv");
     var fileData = new XMLHttpRequest();
     var filePath = "./syuenUta.csv";
 

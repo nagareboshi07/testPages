@@ -35,6 +35,7 @@ if(urlParam) {
     var userFlg = 0;    //ユーザ指定のときは1にする
     var illustFlg = 0;  //イラスト指定(im番号)のときは1にする
     var festFlg = 0;
+    var array = []; //読み込んだcsvを格納する
 
     var printedIllust = "im"; //前回表示したイラストのim番号
 
@@ -69,10 +70,10 @@ if(urlParam) {
     }
     if(fest=="all"){
         for(i=0;i<festname.length;i++){
-            var array = loadFile(csvpath[festname[i]]);
+            array.push(loadFile(csvpath[festname[i]]));
         }
     }else{
-        var array = loadFile(csvpath[fest]);
+        array = loadFile(csvpath[fest]);
     }
 
     for(i=0; i<utaCount; i++){

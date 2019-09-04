@@ -54,7 +54,7 @@ if(urlParam) {
             if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
                 imgiframe = "<iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
                 document.write(imgiframe);
-                document.write("<p><font size='3'><a href='index.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font></p>");
+                document.write("<font size='3'>　　<a href='index.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font>");
                 printedIllust = array[i][0];
             }
             document.write("<table width='500' border='3' rules='none' bgcolor='ivory'><body text='#000000'><p align='center'>");

@@ -31,12 +31,12 @@ festinfo["8th"] = ["",""];
 festinfo["9th"] = ["",""];
 
 //リンク集を表示する。
-document.write("<h1>閲覧するお祭りを選択してください。</h1>")
+document.write("<h1>お祭り選択</h1>")
 document.write("<table border='1' rules='all'><tr>")
-document.write("<td><a href='index.html?fest=all'>　全部　</a></td>")
+document.write("<td>　<a href='index.html?fest=all'>全部</a>　</td>")
 for(i=0;i<festnames.length;i++){
     if(festinfo[festnames[i]][0]!=""){
-        document.write("<td><a href='index.html?fest=" + festnames[i] + "'> 東方ニコ楽祭・" + festinfo[festnames[i]][1] + " </a></td>")
+        document.write("<td>　<a href='index.html?fest=" + festnames[i] + "'>東方ニコ楽祭・" + festinfo[festnames[i]][1] + "</a>　</td>")
         if(i%5==3){
             document.write("</tr><tr>");
         }

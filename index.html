@@ -19,15 +19,31 @@ var allCount = 0;
 
 //読み込むcsvリスト
 var festnames=["1st","2nd","4th","5th","6th","7th","8th","9th"];
-var csvpath = [];
-csvpath["1st"] = "tsukimi.csv";
-csvpath["2nd"] = "hanami.csv";
-csvpath["4th"] = "syuen.csv";
-csvpath["5th"] = "";    //ここに歌のcsvのファイル名を入力していく。
-csvpath["6th"] = "";
-csvpath["7th"] = "";
-csvpath["8th"] = "";
-csvpath["9th"] = "";
+var festinfo = [];
+//["読み込むcsvの名前","表示するお祭り名"];
+festinfo["1st"] = ["tsukimi.csv","月見"];
+festinfo["2nd"] = ["hanami.csv","花見"];
+festinfo["4th"] = ["syuen.csv","酒宴"];
+festinfo["5th"] = ["",""];    //ここに歌のcsvのファイル名を入力していく。
+festinfo["6th"] = ["",""];
+festinfo["7th"] = ["",""];
+festinfo["8th"] = ["",""];
+festinfo["9th"] = ["",""];
+
+//リンク集を表示する。
+document.write("<table border='1' rules='all'><tr>")
+for(i=0;i<festnames.length;i++){
+    if(festinfo[festnames[i][0]]!=""){
+        document.write("<td><a href='index.html?fest=" + festinfo[festnames][i][0] + "'>" + festinfo[festnames][i][1] + "</a></td>")
+        if(i%5==4){
+            document.write("</tr><tr>");
+        }
+    }
+}
+document.write("</tr></table>");
+
+
+
 
 // URLにパラメータが存在する場合
 if(urlParam) {
@@ -76,7 +92,7 @@ if(urlParam) {
     }
     for(j=0;j<fest.length;j++){
         utaCount = 0;
-        var array = loadFile(csvpath[fest[j]]);
+        var array = loadFile(festinfo[fest[j]][0]);
         for(i=0; i<utaCount; i++){
             if((userFlg == 0 || array[i][4].trim() == userName) && (illustFlg == 0 || array[i][0] == paramArray.illust)){
                 if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。

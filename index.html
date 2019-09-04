@@ -29,7 +29,6 @@ if(urlParam) {
     var paramArray = [];    //パラメータ格納用の配列
 
     //配列にパラメータを格納
-
     for (i = 0; i < param.length; i++) {
         var paramItem = param[i].split('=');
         paramArray[paramItem[0]] = paramItem[1];
@@ -39,6 +38,7 @@ if(urlParam) {
             illustFlg = 1;
         }
     }
+
     if(userFlg==1){
         var userName = paramArray.user;
         userName = decodeURI(userName);
@@ -57,12 +57,12 @@ if(urlParam) {
                 document.write("<p><font size='3'><a href='index.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font></p>");
                 printedIllust = array[i][0];
             }
-            document.write("<table width='500'><body text='#000000'><p align='center'>");
+            document.write("<table width='500' border='3' rules='none'><body text='#000000'><p align='center'>");
             document.write("<tr><td align=left>" + array[i][2] + "</td></tr>");
             document.write("<tr><td align=center>" + array[i][3] + "</td></tr>");
             document.write("<tr><td align=right>" + array[i][4] + "</td></tr></table>");
 
-            document.write("<p><a href='index.html?user=" + array[i][4] + "'>この詠み手の歌をもっと見る</a></p><br>");
+            document.write("<p><font size='3'><a href='index.html?user=" + array[i][4] + "'>この詠み手の歌をもっと見る</a></font></p><br><br>");
         }
     }
 }

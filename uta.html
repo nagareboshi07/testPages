@@ -31,12 +31,12 @@ festinfo["8th"] = ["",""];
 festinfo["9th"] = ["",""];
 
 //お祭り選択ボタンを表示する
-document.write("<table border='1' rules='all'><tr><td>お祭り選択</td><td width='200'>");
+document.write("<table border='1' rules='all'><tr><td width='110' align='center'>お祭り選択</td><td width='200'>");
 document.write("<select name='fest'>");
 document.write("<option value='all'>全部</option>")
 for(i=0;i<festnames.length;i++){
     if(festinfo[festnames[i]][0]!=""){
-        document.write("<select name='" + festnames[i] + "'>東方ニコ楽祭・" + festinfo[festnames[i]][1] +"</option>");
+        document.write("<option value='" + festnames[i] + "'>東方ニコ楽祭・" + festinfo[festnames[i]][1] +"</option>");
     }
 }
 document.write("</td></tr></table>");

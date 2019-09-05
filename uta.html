@@ -90,7 +90,7 @@ for(i=0;i<festnames.length;i++){
 }
 document.write("</td></tr>");
 //イラスト指定を表示する
-document.write("<tr><td align='center'>イラスト指定");
+document.write("<tr><td align='center'>イラスト指定</td><td>");
 document.write("<input type='text' name='illust' maxlength='10' value='")
 if(illustFlg==1){
     document.write(paramArray.illust + "'></td></tr>");
@@ -99,7 +99,7 @@ if(illustFlg==1){
 }
 
 //詠み人指定を表示する
-document.write("<tr><td align='center'>詠み人指定");
+document.write("<tr><td align='center'>詠み人指定</td><td>");
 document.write("<input type='text' name='user'");
 if(userFlg==1){
     document.write(" value='" + userName + "'");
@@ -159,12 +159,12 @@ function loadFile(filename){
 }
 
 function link(){
-    var url = "uta.html?fest=" + document.forms.form.fest;
-    if(document.forms.form.user != ""){
-        url = url + "&user=" + document.forms.form.user;
+    var url = "uta.html?fest=" + document.form.fest.value;
+    if(document.form.user.value != ""){
+        url = url + "&user=" + document.form.user.value;
     }
-    if(document.forms.form.illust != ""){
-        url = url + "&illust=" + document.forms.form.illust;
+    if(document.form.illust.value != "" && document.form.illust.value != "im"){
+        url = url + "&illust=" + document.form.illust.value;
     }
 
     location.href = url;

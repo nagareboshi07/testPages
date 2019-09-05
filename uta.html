@@ -75,7 +75,7 @@ document.write("<form name='form' id='form' action=''>");
 document.write("<table border='1' rules='all'><tr><td width='110' align='center'>お祭り選択</td><td width='200'>");
 document.write("<select name='fest'");
 if(festFlg==1){
-    document.write(" selected='" + fest[0] + "'")
+    document.write(" selected='東方ニコ楽祭・" + festinfo[fest[0]][1] + "'")
 }
 document.write("><option value='all'>全部</option>");
 for(i=0;i<festnames.length;i++){

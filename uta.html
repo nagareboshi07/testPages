@@ -7,6 +7,9 @@
         font-family:'Noto Serif JP',serif;
         -webkit-text-size-adjust: 100%;
     }
+    .usersTable{
+        table-layout: fixed;
+    }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>東方ニコ楽祭 歌詠み一覧</title>
@@ -150,13 +153,13 @@
     }else{
         // 幅サイズの指定
         if(isMobile){
-            var tdsize = 100;
+            var tdsize = 300;
         }else{
             var tdsize = 600;
         }
 
         document.write("<h1>詠み人一覧</h1>");
-        document.write("<table width='560' border='3' rules='all' bgcolor='azure'>");
+        document.write("<table class='usersTable' width='560' border='3' rules='all' bgcolor='azure'>");
 
         var users = [];
         var usersCount = [];

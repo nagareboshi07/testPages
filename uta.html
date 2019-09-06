@@ -12,19 +12,7 @@
 <body>
 <script type="text/javascript">
 
-    var urlParam = location.search.substring(1);
-    
-    var utaCount = 0;
-    var allCount = 0;
-
-    var fest = [];  //csvを読み込むお祭り番号を格納する。
-    fest[0] = "all";    //allのときはすべてのお祭りを読み込む(あとで全部のお祭り番号をコピーする)
-    var paramIllust = "";
-    var userName = "";
-    var userFlg = 0;    //ユーザ指定のときは1にする
-    var illustFlg = 0;  //イラスト指定(im番号)のときは1にする
-    var festFlg = 0;
-
+    /* ここからメンテナンス範囲 */
 
     //読み込むcsvリスト
     var festnames=["tsukimi","hanami","syuen","5th","6th","7th","8th","9th"];   //URLのfest=につけるお祭り英語表記
@@ -39,7 +27,20 @@
     festinfo[festnames[6]] = ["",""];
     festinfo[festnames[7]] = ["",""];
 
+    /* ここまでメンテナンス範囲 */
 
+    var urlParam = location.search.substring(1);
+    
+    var utaCount = 0;
+    var allCount = 0;
+
+    var fest = [];  //csvを読み込むお祭り番号を格納する。
+    fest[0] = "all";    //allのときはすべてのお祭りを読み込む(あとで全部のお祭り番号をコピーする)
+    var paramIllust = "";
+    var userName = "";
+    var userFlg = 0;    //ユーザ指定のときは1にする
+    var illustFlg = 0;  //イラスト指定(im番号)のときは1にする
+    var festFlg = 0;
 
     if(urlParam) {
         // 「&」が含まれている場合は「&」で分割
@@ -108,11 +109,12 @@
     document.write("></td></tr></table>");
     document.write("<p><input type='button' value='表示' onclick='link()'/></p></hr></form><hr>");
 
+    if(fest[0]=="all"){
+            fest = festnames;
+    }
+
     // URLにパラメータが存在する場合
     if(urlParam){
-        if(fest[0]=="all"){
-            fest = festnames;
-        }
         for(j=0;j<fest.length;j++){
             utaCount = 0;
             var array = loadFile(festinfo[fest[j]][0]);
@@ -132,6 +134,39 @@
                     document.write("<p><font size='3'><a href='uta.html?user=" + array[i][4] + "'>この詠み手の歌をもっと見る</a></font></p><br><br>");
                     allCount = allCount + 1;
                 }
+            }
+        }
+    }else{
+        document.write("<h1>詠み人一覧</h1>");
+        document.write("<table width='560' border='3' rules='none' bgcolor='azure'>");
+
+        var users = [];
+        var usersCount = [];
+
+        for(j=0;j<fest.length;j++){
+            utaCount = 0;
+            var array = loadFile(festinfo[fest[j]][0]);
+            for(i=0;i<utaCount;i++){
+                if(users.indexOf(array[i][4])==-1){  //見つからなかったとき
+                    users.push(array[i][4]);
+                    usersCount[array[i][4]] = 1;
+                }else{
+                    usersCount[array[i][4]]++;
+                }
+            }
+        }
+        users.sort();
+        for(i=0; i<(users.length/3); i++){
+            document.write("<tr><td width='200' align='center'><a href='uta.html?user=" + users[i*3] + "'>" + users[i*3]+"</a></td>")
+            if(i*3+1 <= users.length){
+                document.write("<td width='200' align='center'><a href='uta.html?user=" + users[i*3+1] + "'>" + users[i*3+1]+"</a></td>");
+            }else{
+                document.write("<td></td>");
+            }
+            if(i*3+2 <= users.length){
+                document.write("<td width='200' align='center'><a href='uta.html?user=" + users[i*3+2] + "'>" + users[i*3+2]+"</a></td>");
+            }else{
+                document.write("<td></td>");
             }
         }
     }

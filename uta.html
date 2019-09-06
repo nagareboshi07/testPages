@@ -3,7 +3,10 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:600&display=swap" rel="stylesheet">
 <style>
     p{font-family:'Noto Serif JP',serif;}
-    body{font-family:'Noto Serif JP',serif;}
+    body{
+        font-family:'Noto Serif JP',serif;
+        -webkit-text-size-adjust: 100%;
+    }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>東方ニコ楽祭 歌詠み一覧</title>
@@ -96,7 +99,7 @@
     document.write("</td></tr>");
     //イラスト指定を表示する
     document.write("<tr><td align='center'>イラスト指定</td><td>");
-    document.write("<input type='text' name='illust' maxlength='10' value='")
+    document.write("<input type='text' name='illust' maxlength='10' value='");
     if(illustFlg==1){
         document.write(paramIllust + "'></td></tr>");
     }else{
@@ -126,7 +129,12 @@
                     if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
                         imgiframe = "<iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
                         document.write(imgiframe);
-                        document.write("<font size='3'>　　<a href='uta.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font>");
+                        if(isMobile){
+                            document.write("<br><font size='3'><a href='uta.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font>");
+                        }else{
+                            document.write("<font size='3'>　　<a href='uta.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font>");
+                        }
+                        
                         printedIllust = array[i][0];
                     }
                     document.write("<table width='560' border='3' rules='none' bgcolor='ivory'><body text='#000000'><p align='center'>");

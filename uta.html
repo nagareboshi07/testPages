@@ -83,7 +83,6 @@
         }
         if(hankakuFlg == 1 && userName.length>0){
             hankakuUserName = toHankaku(userName);
-            document.write(hankakuUserName);
         }
         if(bubunFlg == 1){
             var usernameRegex = new RegExp(".*"+hankakuUserName+".*");
@@ -213,6 +212,7 @@
             var array = loadFile(festinfo[fest[j]][0]);
             for(i=0; i<utaCount; i++){
                 var tmpuser=false;
+                console.log(toHankaku(array[i][4]));
                 if(bubunFlg==1){
                     if(hankakuFlg==1&&usernameRegex.test(toHankaku(array[i][4]))){
                         tmpuser = true;

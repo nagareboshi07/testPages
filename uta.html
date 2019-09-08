@@ -213,10 +213,10 @@
             for(i=0; i<utaCount; i++){
                 var tmpuser="";
                 if(bubunFlg==1){
-                    if(hankakuFlg==1){
-                        tmpuser=toHankaku(array[i][4]).match(usernameRegex);
-                    }else{
-                        tmpuser=array[i][4].match(usernameRegex);
+                    if(hankakuFlg==1&&usernameRegex.test(toHankaku(array[i][4]))){
+                        tmpuser = userName;
+                    }else if(usernameRegex.test(array[i][4])){
+                        tmpuser = userName;
                     }
                 }else if(hankakuFlg==1 && userName==toHankaku(array[i][4])){
                     tmpuser = userName;
@@ -289,7 +289,6 @@
         var result = text.replace(/[！-～]/g, function(tmp){
             return String.fromCharCode(tmp.charCodeAt(0) - 0xFEE0);
         });
-        document.write(result);
         return result;
     }
 

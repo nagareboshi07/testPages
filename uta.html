@@ -218,10 +218,12 @@
                     }else if(usernameRegex.test(array[i][4])){
                         tmpuser = true;
                     }
-                }else if(hankakuFlg==1 && hankakuUserName==toHankaku(array[i][4])){
-                    tmpuser = true;
-                }
-                console.log(tmpuser);                
+                }else if(hankakuFlg==1){
+                    cosole.log(toHankaku(array[i][4])+","+hankakuUserName);
+                    if(hankakuUserName==toHankaku(array[i][4])){
+                        tmpuser = true;
+                    }
+                }     
 
                 if((userName.length==0 || array[i][4].trim() == userName || tmpuser) && (paramIllust.length<3 || array[i][0] == paramIllust)){
                     if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。

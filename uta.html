@@ -289,7 +289,7 @@
         var result = text.replace(/[！-～]/g, function(tmp){
             return String.fromCharCode(tmp.charCodeAt(0) - 0xFEE0);
         });
-        document.wrire(result);
+        document.write(result);
         return result;
     }
 

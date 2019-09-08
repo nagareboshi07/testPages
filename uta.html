@@ -221,7 +221,6 @@
                 }else if(hankakuFlg==1 && userName==toHankaku(array[i][4])){
                     tmpuser = userName;
                 }
-                document.write(userName);
                 if((userName.length==0 || array[i][4].trim() == userName||tmpuser.length>0) && (paramIllust.length<3 || array[i][0] == paramIllust)){
                     if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
                         imgiframe = "<iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
@@ -287,10 +286,10 @@
     }
 
     function toHankaku(text){
-        var result = text.replace(/[！-～]/g,
-        function(tmp){
+        var result = text.replace(/[！-～]/g, function(tmp){
             return String.fromCharCode(tmp.charCodeAt(0) - 0xFEE0);
         });
+        document.wrire(result);
         return result;
     }
 

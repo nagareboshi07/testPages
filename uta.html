@@ -135,7 +135,6 @@
     if(fest[0]=="all"){
             fest = festnames;
     }
-    document.write(mode);
     // URLにパラメータが存在する場合
     if(mode.length>0){
         if(mode=="illustlist"){
@@ -201,12 +200,11 @@
             }
         }
     }else if(urlParam.length>0){
-        document.write("urlparam=on");
         for(j=0;j<fest.length;j++){
             utaCount = 0;
             var array = loadFile(festinfo[fest[j]][0]);
             for(i=0; i<utaCount; i++){
-                if((userName.length>0 || array[i][4].trim() == userName) && (paramIllust.length>2 || array[i][0] == paramIllust)){
+                if((userName.length==0 || array[i][4].trim() == userName) && (paramIllust.length<3 || array[i][0] == paramIllust)){
                     if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
                         imgiframe = "<iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>"
                         document.write(imgiframe);

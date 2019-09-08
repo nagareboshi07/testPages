@@ -83,6 +83,7 @@
         }
         if(hankakuFlg == 1 && userName.length>0){
             hankakuUserName = toHankaku(userName);
+            document.write(hankakuUserName);
         }
         if(bubunFlg == 1){
             var usernameRegex = new RegExp(".*"+hankakuUserName+".*");

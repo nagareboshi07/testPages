@@ -59,6 +59,7 @@
 
         var paramArray = [];    //パラメータ格納用の配列
 
+
         //配列にパラメータを格納
         for (i = 0; i < param.length; i++) {
             var paramItem = param[i].split('=');
@@ -118,8 +119,16 @@
     if(userName.length>0){
         document.write(" value='" + userName + "'");
     }
-    document.write("><br><input type='checkbox' name='userHankaku' checked='checked'> 半角全角を無視する。<br>");
-    document.write("<input type='checkbox' name='userBubun'> 部分一致で検索する。");
+    if(hankakuFlg==1){
+        document.write("><br><input type='checkbox' name='userHankaku' checked='checked'> 半角全角を無視する。<br>");
+    }else{
+        document.write("><br><input type='checkbox' name='userHankaku'> 半角全角を無視する。<br>");
+    }
+    if(bubunFlg==1){
+        document.write("<input type='checkbox' name='userBubun' checked='checked'> 部分一致で検索する。");
+    }else{
+        document.write("<input type='checkbox' name='userBubun'> 部分一致で検索する。");
+    }
     document.write("</td></tr></table>");
     document.write("<p><input type='button' value='表示' onclick='link()'/></p></hr></form><hr>");
 
@@ -146,6 +155,7 @@
                     document.write(imgiframe);
                     document.write("<br><font size='3'><a href='uta.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font></td>");
                     printedIllust = array[i][0];
+                    illustCount++;
                     }
                 }
             }
@@ -179,7 +189,7 @@
             users.sort();
             for(i=0; i<(users.length/2); i++){
                 document.write("<tr><td width='" + tdsize + "' align='center'><a href='uta.html?user=" + users[i*2] + "'>" + users[i*2]+"</a></td>");
-                if(i*2+1 <= users.length){
+                if(i*2+1 < users.length){
                     if(isMobile){
                         document.write("</tr><tr>")
                     }
@@ -190,7 +200,6 @@
                 document.write("</tr>");
             }
         }
-
     }else if(urlParam){
         for(j=0;j<fest.length;j++){
             utaCount = 0;

@@ -219,7 +219,8 @@
                         tmpuser = true;
                     }
                 }else if(hankakuFlg==1){
-                    console.log(toHankaku(array[i][4])+","+hankakuUserName);
+                    var tmp = toHankaku(array[i][4]);
+                    console.log(tmp+","+hankakuUserName);
                     if(hankakuUserName==toHankaku(array[i][4])){
                         tmpuser = true;
                     }

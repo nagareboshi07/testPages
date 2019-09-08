@@ -50,6 +50,10 @@
     var bubunFlg = 0;
     var mode = "";
 
+    if("AIUEO"==toHankaku("ＡＩＵＥＯ")){
+        console.log("aiueo")
+    }
+
     if(urlParam) {
         // 「&」が含まれている場合は「&」で分割
         var param = urlParam.split('&');
@@ -224,7 +228,7 @@
                     if(hankakuUserName==toHankaku(array[i][4])){
                         tmpuser = true;
                     }
-                }     
+                }
 
                 if((userName.length==0 || array[i][4].trim() == userName || tmpuser) && (paramIllust.length<3 || array[i][0] == paramIllust)){
                     if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
@@ -290,6 +294,7 @@
         location.href = url;
     }
 
+//半角化
     function toHankaku(text){
         var result = text.replace(/[！-～]/g, function(tmp){
             return String.fromCharCode(tmp.charCodeAt(0) - 0xFEE0);

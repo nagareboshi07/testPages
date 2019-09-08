@@ -50,10 +50,6 @@
     var bubunFlg = 0;
     var mode = "";
 
-    if("AIUEO"==toHankaku("ＡＩＵＥＯ")){
-        console.log("aiueo")
-    }
-
     if(urlParam) {
         // 「&」が含まれている場合は「&」で分割
         var param = urlParam.split('&');
@@ -87,9 +83,11 @@
         }
         if(hankakuFlg == 1 && userName.length>0){
             hankakuUserName = toHankaku(userName);
-        }
-        if(bubunFlg == 1){
-            var usernameRegex = new RegExp(".*"+hankakuUserName+".*");
+            if(bubunFlg==1){
+                var usernameRegex = new RegExp(".*"+hankakuUsername+".*");
+            }
+        } else(bubunFlg == 1){
+            var usernameRegex = new RegExp(".*"+userName+".*");
         }
 
     }
@@ -144,7 +142,7 @@
     document.write("<p><input type='button' value='表示' onclick='link()'/></p></hr></form><hr>");
 
     if(fest[0]=="all"){
-            fest = festnames;
+        fest = festnames;
     }
     // URLにパラメータが存在する場合
     if(mode.length>0){
@@ -224,7 +222,7 @@
                     }
                 }else if(hankakuFlg==1){
                     var tmp = toHankaku(array[i][4]);
-                    console.log(tmp+"("+typeof tmp+"),"+hankakuUserName+"("+typeof tmp+")");
+                    console.log(tmp+"("+typeof tmp+"),"+hankakuUserName+"("+typeof tmp+")," + tmp==hankakuUserName);
                     if(hankakuUserName==toHankaku(array[i][4])){
                         tmpuser = true;
                     }
@@ -253,7 +251,6 @@
             }
         }
     }
-
     function loadFile(filename){
         var fileData = new XMLHttpRequest();
         var resultArray = new Array();

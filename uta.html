@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<h1>東方ニコ楽祭　歌詠み一覧</h1>
 <script type="text/javascript">
 
     /* ここからメンテナンス範囲 */
@@ -138,7 +139,7 @@
         document.write("><br><input type='checkbox' name='userBubun'> 部分一致で検索する。");
     }
     document.write("</td></tr></table>");
-    document.write("<p><input type='button' value='表示' onclick='link()'/></p></hr></form><hr>");
+    document.write("<p><input type='button' value='表示' onclick='link()'/></p></form><hr>");
 
     // イラスト一覧リンクを表示する。
     document.write("<h2>イラスト一覧はこちらから</h2>")
@@ -167,7 +168,7 @@
             }
         }
     }
-    document.write("</tr></table>");
+    document.write("</tr></table><br><hr><br>");
 
 
 
@@ -179,6 +180,7 @@
     // URLにパラメータが存在する場合
     if(mode.length>0){
         if(mode=="illustlist"){
+            document.write("<h2>イラスト一覧</h2>");
             var illustCount = 0;
             for(j=0;j<fest.length;j++){
             utaCount = 0;
@@ -208,7 +210,7 @@
                 var tdsize = 300;
             }
 
-            document.write("<h1>詠み人一覧</h1>");
+            document.write("<h2>詠み人一覧</h2>");
             document.write("<table class='usersTable' width='560' border='3' rules='all' bgcolor='azure'>");
 
             var users = [];

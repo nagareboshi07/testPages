@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<h1>東方ニコ楽祭　歌詠み一覧</h1>
+    <h1>東方ニコ楽祭　歌詠み一覧</h1>
 <script type="text/javascript">
 
     /* ここからメンテナンス範囲 */
@@ -93,6 +93,50 @@
 
     }
 
+    // 歌一覧リンクを表示する。
+    document.write("<h2>歌紹介はこちらから</h2>")
+    document.write("<table border='1' rules='all'><tr>")
+    document.write("<td>　<a href='uta.html?fest=all'>全部</a>　</td>")
+    for(i=0;i<festnames.length;i++){
+        if(festinfo[festnames[i]][0]!=""){
+            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + ">" + festinfo[festnames[i]][1] + "</a>　</td>")
+            if(i%5==3){
+                document.write("</tr><tr>");
+            }
+        }
+    }
+    document.write("</tr></table>");
+
+
+    // イラスト一覧リンクを表示する。
+    document.write("<h2>イラスト一覧はこちらから</h2>")
+    document.write("<table border='1' rules='all'><tr>")
+    document.write("<td>　<a href='uta.html?mode=illustlist'>全部</a>　</td>")
+    for(i=0;i<festnames.length;i++){
+        if(festinfo[festnames[i]][0]!=""){
+            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + "&mode=illustlist'>" + festinfo[festnames[i]][1] + "</a>　</td>")
+            if(i%5==3){
+                document.write("</tr><tr>");
+            }
+        }
+    }
+    document.write("</tr></table>");
+
+
+    //詠み人一覧リンクを表示する
+    document.write("<h2>詠み人一覧はこちらから</h2>")
+    document.write("<table border='1' rules='all'><tr>")
+    document.write("<td>　<a href='uta.html?mode=userlist'>全部</a>　</td>")
+    for(i=0;i<festnames.length;i++){
+        if(festinfo[festnames[i]][0]!=""){
+            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + "&mode=userlist'>" + festinfo[festnames[i]][1] + "</a>　</td>")
+            if(i%5==3){
+                document.write("</tr><tr>");
+            }
+        }
+    }
+    document.write("</tr></table><br><hr><br><h2>詳細検索</h2>");
+
     //フォームの設定
     document.write("<form name='form' id='form' action=''>");
 
@@ -140,35 +184,6 @@
     }
     document.write("</td></tr></table>");
     document.write("<p><input type='button' value='表示' onclick='link()'/></p></form><hr>");
-
-    // イラスト一覧リンクを表示する。
-    document.write("<h2>イラスト一覧はこちらから</h2>")
-    document.write("<table border='1' rules='all'><tr>")
-    document.write("<td>　<a href='uta.html?mode=illustlist'>全部</a>　</td>")
-    for(i=0;i<festnames.length;i++){
-        if(festinfo[festnames[i]][0]!=""){
-            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + "&mode=illustlist'>" + festinfo[festnames[i]][1] + "</a>　</td>")
-            if(i%5==3){
-                document.write("</tr><tr>");
-            }
-        }
-    }
-    document.write("</tr></table>");
-
-
-    //詠み人一覧リンクを表示する
-    document.write("<h2>詠み人一覧はこちらから</h2>")
-    document.write("<table border='1' rules='all'><tr>")
-    document.write("<td>　<a href='uta.html?mode=userlist'>全部</a>　</td>")
-    for(i=0;i<festnames.length;i++){
-        if(festinfo[festnames[i]][0]!=""){
-            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + "&mode=userlist'>" + festinfo[festnames[i]][1] + "</a>　</td>")
-            if(i%5==3){
-                document.write("</tr><tr>");
-            }
-        }
-    }
-    document.write("</tr></table><br><hr><br>");
 
 
 

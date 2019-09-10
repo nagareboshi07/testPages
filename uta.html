@@ -92,7 +92,6 @@
 
     }
 
-
     //フォームの設定
     document.write("<form name='form' id='form' action=''>");
 
@@ -140,6 +139,9 @@
     }
     document.write("</td></tr></table>");
     document.write("<p><input type='button' value='表示' onclick='link()'/></p></hr></form><hr>");
+
+    document.write("<h2></h2>")
+
 
     if(fest[0]=="all"){
         fest = festnames;
@@ -277,9 +279,9 @@
         var url = "uta.html?fest=" + document.form.fest.value;
         if(document.form.user.value != ""){
             url = url + "&user=" + document.form.user.value;
-            if(document.form.userHankaku.checked){
+/*            if(document.form.userHankaku.checked){
                 url = url + "&hankaku";
-            }
+            }*/
             if(document.form.userBubun.checked){
                 url = url + "&bubun";
             }

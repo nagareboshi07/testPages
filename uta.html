@@ -99,7 +99,7 @@
     document.write("<td>　<a href='uta.html?fest=all'>全部</a>　</td>")
     for(i=0;i<festnames.length;i++){
         if(festinfo[festnames[i]][0]!=""){
-            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + ">" + festinfo[festnames[i]][1] + "</a>　</td>")
+            document.write("<td>　<a href='uta.html?fest=" + festnames[i] + "'>" + festinfo[festnames[i]][1] + "</a>　</td>")
             if(i%5==3){
                 document.write("</tr><tr>");
             }

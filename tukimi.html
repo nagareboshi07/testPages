@@ -17,15 +17,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>東方ニコ楽祭・月見</title>
 	<style type="text/css">
-		ul.ddmenu {
+
+ul.ddmenu {
 			margin: 0px;					/* メニューバー外側の余白 */
-			padding: 0px 0px 0px 15px;		/* メニューバー内側の余白 */
+			padding: 0px 15px 0px 15px;		/* メニューバー内側の余白 */
 			background:  #cc0000;		/* バーの背景色 */
 		}
 		/* メインメニュー項目の装飾 */
 		ul.ddmenu li {
-			width: auto;			/* メニュー項目の横幅 */
-			padding: 0px 10px;
+			width: auto + 10px;			/* メニュー項目の横幅 */
 			display: inline-block;	/* 横並びに配置する */
 			list-style-type: none;	/* リストの先頭記号を消す */
 			position: relative;		/* サブメニュー表示の基準位置にする */
@@ -45,12 +45,32 @@
 		}
 		/* サブメニューがある場合に開く処理 */
 		ul.ddmenu li:hover ul {
-			display: none;		/* マウスポインタが載っている項目の内部にあるリストを表示する */
+			display: block;		/* マウスポインタが載っている項目の内部にあるリストを表示する */
 		}
 		/* サブメニューの装飾 */
 		ul.ddmenu ul {
-			display:none;
+			margin: 0px;			/* サブメニュー外側の余白 */
+			padding: 0px;			/* サブメニュー内側の余白 */
+			display: none;			/* 標準では非表示にする */
+			position: absolute;		/* 絶対配置にする */
 		}
+		/* サブメニュー項目の装飾 */
+		ul.ddmenu ul li {
+			width: 250px;					/* サブメニュー1項目の横幅 */
+			border-top: 1px solid pink;		/* 項目上側の枠線(ピンク色で1pxの実線) */
+		}
+		ul.ddmenu ul li a {
+			line-height: 35px;		/* サブメニュー1項目の高さ */
+			text-align: left;		/* 文字列の配置 */
+			padding-left: 5px;		/* 文字列前方の余白 */
+			font-weight: normal;	/* 太字にはしない */
+		}
+		ul.ddmenu ul li a:hover {
+			background-color: #ffff80;	/* サブメニュー項目にマウスが載ったときの背景色 */
+			color: #005500;				/* サブメニュー項目にマウスが載ったときの文字色 */
+		}
+
+
 	</style>
     
 

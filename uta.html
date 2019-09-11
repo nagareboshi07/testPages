@@ -338,7 +338,7 @@
                         document.write("</tr><tr>")
                     }
                     document.write("<td width='" + tdsize + "' align='center'><a href='uta.html?user=" + users[i*2+1] + "'>" + users[i*2+1]+"</a></td>");
-                }else{
+                }else if(!isMobile){
                     document.write("<td></td>");
                 }
                 document.write("</tr>");

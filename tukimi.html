@@ -18,7 +18,46 @@
 <title>東方ニコ楽祭・月見</title>
 	<style type="text/css">
 
+ul.ddmenu {
+		margin: 0px;					/* メニューバー外側の余白 */
+		padding: 0px 0px 0px 15px;		/* メニューバー内側の余白 */
+		background:  #cc0000;		/* バーの背景色 */
+	}
+	/* メインメニュー項目の装飾 */
+	ul.ddmenu a {
+		background-color: #cc0000;	/* メニュー項目の背景色 */
+		color: white;				/* メニュー項目の文字色 */
+		line-height: 40px;			/* メニュー項目のリンクの高さ */
+		text-align: center;			/* メインメニューの文字列の配置 */
+		text-decoration: none;		/* メニュー項目の装飾(下線を消す) */
+		font-weight: bold;			/* 太字にする */
+		display: block;				/* 項目内全域をリンク可能にする */
+	}
+	ul.ddmenu a:hover {
+		background-color: #ffdddd;	/* メニュー項目にマウスが載ったときの背景色 */
+		color: #dd0000;				/* メニュー項目にマウスが載ったときの文字色 */
+	}
 
+/* 幅が広いとき */
+	@media screen and (max-width:1099px){
+	ul.ddmenu li {
+		width: 100%;			/* メニュー項目の横幅 */
+		display: inline-block;	/* 横並びに配置する */
+		list-style-type: none;	/* リストの先頭記号を消す */
+		position: relative;		/* サブメニュー表示の基準位置にする */
+	}
+
+	/* サブメニューがある場合に開く処理 */
+	ul.ddmenu li:hover ul {
+		display: none;		/* マウスポインタが載っている項目の内部にあるリストを表示する */
+	}
+	/* サブメニューの装飾 */
+	ul.ddmenu ul {
+		display: none;			/* 標準では非表示にする */
+	}
+}
+
+/* 幅が狭いとき */
 @media screen and (min-width:1100){
 	ul.ddmenu li {
 		width: 225px;			/* メニュー項目の横幅 */
@@ -55,44 +94,9 @@
 	}
 }
 
-@media screen and (max-width:1099px){
-	ul.ddmenu li {
-		width: 100%;			/* メニュー項目の横幅 */
-		display: inline-block;	/* 横並びに配置する */
-		list-style-type: none;	/* リストの先頭記号を消す */
-		position: relative;		/* サブメニュー表示の基準位置にする */
-	}
-
-	/* サブメニューがある場合に開く処理 */
-	ul.ddmenu li:hover ul {
-		display: none;		/* マウスポインタが載っている項目の内部にあるリストを表示する */
-	}
-	/* サブメニューの装飾 */
-	ul.ddmenu ul {
-		display: none;			/* 標準では非表示にする */
-	}
-}
 
 
-	ul.ddmenu {
-		margin: 0px;					/* メニューバー外側の余白 */
-		padding: 0px 0px 0px 15px;		/* メニューバー内側の余白 */
-		background:  #cc0000;		/* バーの背景色 */
-	}
-	/* メインメニュー項目の装飾 */
-	ul.ddmenu a {
-		background-color: #cc0000;	/* メニュー項目の背景色 */
-		color: white;				/* メニュー項目の文字色 */
-		line-height: 40px;			/* メニュー項目のリンクの高さ */
-		text-align: center;			/* メインメニューの文字列の配置 */
-		text-decoration: none;		/* メニュー項目の装飾(下線を消す) */
-		font-weight: bold;			/* 太字にする */
-		display: block;				/* 項目内全域をリンク可能にする */
-	}
-	ul.ddmenu a:hover {
-		background-color: #ffdddd;	/* メニュー項目にマウスが載ったときの背景色 */
-		color: #dd0000;				/* メニュー項目にマウスが載ったときの文字色 */
-	}
+
 
 	</style>
     

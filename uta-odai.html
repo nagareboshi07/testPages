@@ -365,14 +365,9 @@
 
                 if((userName.length==0 || array[i][4].trim() == userName || tmpuser) && (paramIllust.length<3 || array[i][0] == paramIllust)){
                     if(array[i][0] != printedIllust){   //前に表示したイラストと異なる場合のみイラスト情報を表示する。
-                        imgiframe = "<table border='2' rules='all'><tr><td width='314'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>";
-                        renga = "";
-                        if(array[i][8]!="-"){
-                            renga = "<br><br>★連歌<br>"+array[i][8]
-                        }
-                        imginfo = "<br><font size='3'>　<a href='uta.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font></td><td width='300'>";
-
-                        imginfo = imginfo + "[東方ニコ楽祭・"+array[i][5]+"]<br><br>★お題<br>"+array[i][7]+renga + "</td></tr>";
+                        imgiframe = "<table border='2' rules='all'><tr><td width='314' rowspan='3'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[i][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[i][0] +"\"> " + array[i][1] + "</a></iframe>";
+                        imginfo = "<td width='300'><font size='3'><a href='uta.html?illust=" + array[i][0] + "'>このイラストの歌をもっと見る</a></font></td></tr>";
+                        imginfo = imginfo + "<tr><td>東方ニコ楽祭・"+array[i][5]+"</td></tr><td><tr>★お題<br>"+array[i][7]+"</td></tr><td><tr>★連歌<br>"+array[i][8]+"</td></tr>";
                         document.write(imgiframe+imginfo);
                         
                         printedIllust = array[i][0];

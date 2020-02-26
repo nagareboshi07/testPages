@@ -11,7 +11,7 @@
 <p>
 <p align="center">
 <script type="text/javascript">
-document.getElementById("utaButton").onclick = function(){
+function utaUpdate(){
   var fileName = "tsukimi.csv";
   var utaCount = 0;
   var utaLists = loadfile(fileName);
@@ -63,8 +63,8 @@ function loadFile(filename){
   <p id="line2" align="center">歌の2行目が表示されます</p>
   <p id="line3" align="right">歌の3行目が表示されます</p>
 </table>
-
-
+<br>
+<input tyoe="button" value="他の歌を見る" onclick="utaUpdate">
 <br>
 <br>
 ここは有志によるweb上で開催される東方Projectのお祭り企画のサイトです。<br>

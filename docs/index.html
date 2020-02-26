@@ -18,8 +18,10 @@ function utaUpdate(){
   var utaNo = Math.floor(Math.random()*utaCount);
 
   var line1 = document.getElementById("line1");
-  var line2 = document.getElementById("line1");
-  var line3 = document.getElementById("line1");
+  var line2 = document.getElementById("line2");
+  var line3 = document.getElementById("line3");
+
+  line1.innerHTML = "test";
 
   line1.innerHTML = utaLists[utaNo][2];//1行目
   line2.innerHTML = utaLists[utaNo][3];//2行目

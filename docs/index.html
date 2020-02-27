@@ -12,8 +12,10 @@
 <script type="text/javascript">
 var utaCount = 0;
 function utaUpdate(){
-  var fileName = "tsukimi.csv";
-  var utaLists = loadFile(fileName);
+  var fileName = "hanami.csv";
+  var utaLists = new Array();
+
+  utaLists = loadFile(fileName);
 
   var utaNo = Math.floor(Math.random()*utaCount);
 

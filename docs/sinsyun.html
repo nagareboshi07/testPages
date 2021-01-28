@@ -78,7 +78,7 @@ body {
 
 <script type="text/javascript">
   var utaCount = 0;
-  var csvdata = loadFile("shinshun.csv");
+  var array = loadFile("shinshun.csv");
   if(utaCount > 0){
     var utaNo = Math.floor(Math.random()*utaCount) + 1;
     var imgiframe = "<table border='2' rules='all'><tr><td width='314' rowspan='4'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[utaNo][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[utaNo][0] +"\"> " + array[utaNo][1] + "</a></iframe>";

@@ -81,7 +81,7 @@ body {
   var csvdata = loadFile("shinshun.csv");
   if(utaCount > 0){
     var utaNo = Math.floor(Math.random()*utaCount) + 1;
-    var imgiframe = "<table border='2' rules='all'><tr><td width='314' rowspan='4'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[utaNo]][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[utaNo][0] +"\"> " + array[utaNo][1] + "</a></iframe>";
+    var imgiframe = "<table border='2' rules='all'><tr><td width='314' rowspan='4'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[utaNo][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[utaNo][0] +"\"> " + array[utaNo][1] + "</a></iframe>";
     var imginfo = "<td width='300'><font size='3'><a href='uta.html?illust=" + array[utaNo][0] + "'>このイラストの歌をもっと見る</a></font></td></tr>";
     imginfo = imginfo + "<tr><td>東方ニコ楽祭・"+array[utaNo][5]+"</td></tr><tr><td>★お題<br>"+array[utaNo][7]+"</td></tr><tr><td>★連歌<br>"+array[utaNo][8]+"</td></tr>";
     document.write(imgiframe+imginfo);

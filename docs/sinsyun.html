@@ -81,7 +81,7 @@ body {
   var array = loadFile("shinshun.csv");
   if(utaCount > 0){
     var utaNo = Math.floor(Math.random()*utaCount);
-    var imgiframe = "<table border='2' rules='groups''><tbody><tr><td width='314' rowspan='4'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[utaNo][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[utaNo][0] +"\"> " + array[utaNo][1] + "</a></iframe></td></tbody>";
+    var imgiframe = "<table border='2' rules='groups''><tbody><tr>< width='314' rowspan='4'><iframe width='312' height=\"176\" src=\"https://ext.seiga.nicovideo.jp/thumb/"+ array[utaNo][0] +"\" scrolling=\"no\" style=\"border:solid 1px #888;\" frameborder=\"0\"><a href=\"https://seiga.nicovideo.jp/seiga/"+ array[utaNo][0] +"\"> " + array[utaNo][1] + "</a></iframe></tbody>";
     var imginfo = "<tbody><td width='600'><font size='3'><a href='uta.html?illust=" + array[utaNo][0] + "'>このイラストの歌をもっと見る</a>　　<a href='uta.html?user=" + array[utaNo][4] + "'>この詠み手の歌をもっと見る</a></font><br></td></tr></tbody>";
     document.write(imgiframe+imginfo);
     document.write("<tbody><tr><td align=left>　" + array[utaNo][2] + "</td></tr>");
@@ -112,7 +112,7 @@ body {
     return resultArray;
   }
 </script>
-
+<br><br>
 
 <font size="5">開催概要</font>
 
